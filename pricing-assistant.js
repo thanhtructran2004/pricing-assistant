@@ -12,8 +12,8 @@ let fixedMonthlyCosts = 4000.00;
 // Calculating Pricing & Profit Metrics
 let discountedPrice = basePrice * (1-discountRate);
 
-let finalPriceWithTax = discountedPrice * (1 + salesTaxRate);
-let profitPerUnit = finalPriceWithTax - costPerUnit;
+let finalPriceWithTax = (discountedPrice * (1 + salesTaxRate)).toFixed(2);
+let profitPerUnit = (finalPriceWithTax - costPerUnit).toFixed(2);
 let breakEvenUnits = Math.ceil(fixedMonthlyCosts/profitPerUnit);
 let isProfitablePerUnit = profitPerUnit > 0;
 
@@ -22,5 +22,5 @@ console.log ("Product Name:", productName);
 console.log ("Discounted Price (before tax):", discountedPrice);
 console.log ("Final Price with Tax:", finalPriceWithTax);
 console.log ("Profit per Unit:", profitPerUnit);
-console.log ("Break-even units (integer):", breakEvenUnits);
-console.log ("Per-unit profitability (true/false):", isProfitablePerUnit);
+console.log ("Break-even units:", breakEvenUnits);
+console.log ("Per-unit profitability:", isProfitablePerUnit);
